@@ -1,171 +1,1138 @@
-export default function PeanutButterPosterLandingPage() {
-  return (
-    <div style={styles.page}>
-      <div style={styles.container}>
-        <header style={styles.hero}>
-          <p style={styles.kicker}>100% Natural Peanut Butter</p>
-          <h1 style={styles.title}>Clean fuel for training and everyday energy</h1>
-          <p style={styles.subtitle}>
-            Made from pure peanuts. Simple, calorie-dense, and perfect for gym
-            lifestyles.
-          </p>
-          <a href="#macros" style={styles.button}>
-            View macros
-          </a>
-        </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pure Grind | 100% Organic Peanut Butter</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5EDD6;
+    --peanut: #C8852A;
+    --dark-peanut: #8B5A1A;
+    --dark: #1A1208;
+    --green: #3D6B3A;
+    --light-green: #5E9E5A;
+    --text: #2A1F0A;
+    --white: #FFFDF7;
+  }
 
-        <section style={styles.box}>
-          <h2 style={styles.heading}>Why gym goers like it</h2>
-          <ul style={styles.list}>
-            <li>Easy way to increase calories when bulking</li>
-            <li>Keeps you full between meals</li>
-            <li>Quick pre or post workout option</li>
-            <li>Works with oats, smoothies, toast, and fruit</li>
-          </ul>
-        </section>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        <section id="macros" style={styles.box}>
-          <h2 style={styles.heading}>Macro highlights</h2>
-          <p style={styles.text}>Replace these with your exact values:</p>
-          <ul style={styles.list}>
-            <li>Calories: ___ per serving</li>
-            <li>Protein: ___ g</li>
-            <li>Fats: ___ g</li>
-            <li>Carbs: ___ g</li>
-            <li>Ingredients: 100% peanuts</li>
-          </ul>
-        </section>
+  html { scroll-behavior: smooth; }
 
-        <section style={styles.box}>
-          <h2 style={styles.heading}>Who it is good for</h2>
-          <p style={styles.text}>
-            <strong>Bulking:</strong> easy way to increase calories
-          </p>
-          <p style={styles.text}>
-            <strong>Busy people:</strong> quick snack option
-          </p>
-          <p style={styles.text}>
-            <strong>Clean eating:</strong> simple natural ingredients
-          </p>
-        </section>
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
 
-        <section style={styles.box}>
-          <h2 style={styles.heading}>Easy recipe ideas</h2>
-          <p style={styles.text}>
-            <strong>Peanut Butter Oats</strong>
-            <br />
-            Oats + milk + peanut butter + banana
-          </p>
-          <p style={styles.text}>
-            <strong>Smoothie</strong>
-            <br />
-            Milk + banana + peanut butter + protein powder
-          </p>
-          <p style={styles.text}>
-            <strong>Toast</strong>
-            <br />
-            Toast + peanut butter + banana or dates
-          </p>
-        </section>
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px 40px;
+    position: relative;
+    overflow: hidden;
+  }
 
-        <section style={styles.box}>
-          <h2 style={styles.heading}>FAQ</h2>
-          <p style={styles.text}>
-            <strong>Is it good for muscle gain?</strong>
-            <br />
-            Yes, it helps increase calorie intake easily.
-          </p>
-          <p style={styles.text}>
-            <strong>When should I eat it?</strong>
-            <br />
-            Any time, like breakfast, before workouts, or after workouts.
-          </p>
-          <p style={styles.text}>
-            <strong>What makes it different?</strong>
-            <br />
-            Simple ingredients and no unnecessary additives.
-          </p>
-        </section>
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 100%, rgba(200,133,42,0.25) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 20% 10%, rgba(61,107,58,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
 
-        <section style={{ ...styles.box, ...styles.center }}>
-          <h2 style={styles.heading}>Order now</h2>
-          <p style={styles.text}>Add your contact link here</p>
-          <a href="#" style={styles.button}>
-            Order on WhatsApp
-          </a>
-        </section>
-      </div>
+  .badge {
+    display: inline-block;
+    background: var(--green);
+    color: var(--cream);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+    font-weight: 500;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 18vw, 13rem);
+    line-height: 0.88;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    animation: fadeUp 0.7s 0.1s ease both;
+    position: relative;
+  }
+
+  .hero-title span {
+    color: var(--peanut);
+    display: block;
+  }
+
+  .hero-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: rgba(245,237,214,0.65);
+    margin-top: 24px;
+    max-width: 480px;
+    line-height: 1.6;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-jar {
+    margin: 32px 0;
+    animation: float 4s ease-in-out infinite, fadeUp 0.7s 0.3s ease both;
+    display: block;
+    line-height: 1;
+    width: clamp(160px, 32vw, 240px);
+    position: relative;
+  }
+
+  .scroll-hint {
+    margin-top: 40px;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,237,214,0.4);
+    animation: fadeUp 0.7s 0.5s ease both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .scroll-hint::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--peanut), transparent);
+    animation: pulse 2s ease infinite;
+  }
+
+  /* ── NAV DOTS ── */
+  .nav {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+  }
+
+  .nav a {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(245,237,214,0.25);
+    display: block;
+    transition: all 0.3s;
+  }
+
+  .nav a:hover { background: var(--peanut); transform: scale(1.4); }
+
+  /* ── SECTION BASE ── */
+  section {
+    padding: 80px 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--peanut);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.15;
+    margin-bottom: 32px;
+    color: var(--cream);
+  }
+
+  .section-title em { color: var(--peanut); font-style: normal; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(200,133,42,0.4), transparent);
+    margin: 0;
+  }
+
+  /* ── WHY NATURAL ── */
+  #why {
+    padding-top: 90px;
+  }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-top: 40px;
+  }
+
+  .compare-col {
+    padding: 36px 28px;
+  }
+
+  .compare-col.natural {
+    background: var(--green);
+  }
+
+  .compare-col.processed {
+    background: #2A2218;
+  }
+
+  .compare-col h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .compare-col.natural h3 { color: #C8F0C4; }
+  .compare-col.processed h3 { color: rgba(245,237,214,0.4); }
+
+  .compare-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .compare-list li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding-left: 22px;
+    position: relative;
+    color: rgba(245,237,214,0.85);
+  }
+
+  .compare-list li::before {
+    content: attr(data-icon);
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .highlight-box {
+    margin-top: 32px;
+    padding: 24px 28px;
+    border-left: 3px solid var(--peanut);
+    background: rgba(200,133,42,0.08);
+    border-radius: 0 12px 12px 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(245,237,214,0.8);
+  }
+
+  .highlight-box strong { color: var(--cream); }
+
+  /* ── MACROS ── */
+  #macros { padding-top: 80px; }
+
+  .macro-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 36px 0;
+  }
+
+  .macro-card {
+    background: rgba(245,237,214,0.05);
+    border: 1px solid rgba(245,237,214,0.1);
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .macro-card:hover {
+    border-color: var(--peanut);
+    transform: translateY(-4px);
+  }
+
+  .macro-card .icon { font-size: 2rem; margin-bottom: 14px; }
+
+  .macro-card .value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.4rem;
+    color: var(--peanut);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .macro-card .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(245,237,214,0.5);
+  }
+
+  .macro-card .desc {
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: rgba(245,237,214,0.65);
+    line-height: 1.5;
+  }
+
+  /* protein calculator */
+  .calc-box {
+    background: linear-gradient(135deg, rgba(61,107,58,0.2), rgba(200,133,42,0.1));
+    border: 1px solid rgba(200,133,42,0.25);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-top: 36px;
+  }
+
+  .calc-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+    color: var(--cream);
+  }
+
+  .calc-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .calc-row label {
+    font-size: 0.85rem;
+    color: rgba(245,237,214,0.65);
+    min-width: 80px;
+  }
+
+  .calc-row input, .calc-row select {
+    background: rgba(245,237,214,0.08);
+    border: 1px solid rgba(245,237,214,0.2);
+    color: var(--cream);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    flex: 1;
+    min-width: 120px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .calc-row input:focus, .calc-row select:focus {
+    border-color: var(--peanut);
+  }
+
+  .calc-row select option { background: #1A1208; }
+
+  .calc-btn {
+    background: var(--peanut);
+    color: var(--dark);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    letter-spacing: 0.03em;
+  }
+
+  .calc-btn:hover { background: #e09c3a; transform: scale(1.03); }
+
+  .calc-result {
+    display: none;
+    background: rgba(200,133,42,0.12);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-top: 8px;
+  }
+
+  .calc-result.show { display: block; }
+
+  .calc-result .result-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--peanut);
+    line-height: 1;
+  }
+
+  .calc-result .result-text {
+    font-size: 0.88rem;
+    color: rgba(245,237,214,0.7);
+    margin-top: 6px;
+    line-height: 1.6;
+  }
+
+  /* ── RECIPES ── */
+  #recipes { padding-top: 80px; }
+
+  .recipes-intro {
+    font-size: 1rem;
+    color: rgba(245,237,214,0.65);
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 44px;
+  }
+
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .recipe-card {
+    background: rgba(245,237,214,0.04);
+    border: 1px solid rgba(245,237,214,0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
+  }
+
+  .recipe-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(200,133,42,0.4);
+  }
+
+  .recipe-emoji {
+    background: linear-gradient(135deg, rgba(200,133,42,0.15), rgba(61,107,58,0.15));
+    font-size: 3.2rem;
+    padding: 28px 24px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .recipe-body { padding: 20px 22px 24px; }
+
+  .recipe-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+    color: var(--cream);
+  }
+
+  .recipe-time {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--peanut);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .recipe-desc {
+    font-size: 0.83rem;
+    color: rgba(245,237,214,0.55);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .recipe-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    background: rgba(61,107,58,0.25);
+    color: #8FCC8A;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+
+  /* modal */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,8,3,0.85);
+    backdrop-filter: blur(6px);
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: #221A0A;
+    border: 1px solid rgba(200,133,42,0.3);
+    border-radius: 24px;
+    max-width: 520px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 36px 32px;
+    position: relative;
+    animation: popIn 0.3s ease both;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 18px; right: 20px;
+    background: none;
+    border: none;
+    color: rgba(245,237,214,0.4);
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    line-height: 1;
+    padding: 4px;
+  }
+
+  .modal-close:hover { color: var(--cream); }
+
+  .modal-emoji { font-size: 3rem; margin-bottom: 16px; }
+
+  .modal h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+
+  .modal-time { color: var(--peanut); font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px; }
+
+  .modal h4 {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245,237,214,0.4);
+    margin: 20px 0 10px;
+  }
+
+  .modal ul, .modal ol {
+    padding-left: 20px;
+    color: rgba(245,237,214,0.75);
+    font-size: 0.88rem;
+    line-height: 1.8;
+  }
+
+  .modal p {
+    color: rgba(245,237,214,0.7);
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  /* ── CTA ── */
+  .cta {
+    text-align: center;
+    padding: 90px 24px;
+    position: relative;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(200,133,42,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    letter-spacing: 0.02em;
+    color: var(--cream);
+    margin-bottom: 16px;
+  }
+
+  .cta p {
+    color: rgba(245,237,214,0.5);
+    font-size: 0.95rem;
+    margin-bottom: 36px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--peanut);
+    color: var(--dark);
+    padding: 16px 44px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .cta-btn:hover { background: #e09c3a; transform: scale(1.04); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 0.75rem;
+    color: rgba(245,237,214,0.2);
+    letter-spacing: 0.1em;
+    border-top: 1px solid rgba(245,237,214,0.06);
+  }
+
+  /* ── PRICING ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 560px;
+    margin: 44px auto 28px;
+  }
+
+  .price-card {
+    background: rgba(245,237,214,0.05);
+    border: 1px solid rgba(245,237,214,0.12);
+    border-radius: 22px;
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+
+  .price-card:hover { transform: translateY(-5px); }
+
+  .price-card.featured {
+    border-color: var(--peanut);
+    background: rgba(200,133,42,0.1);
+  }
+
+  .price-badge {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--peanut);
+    color: var(--dark);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .price-icon { font-size: 2.6rem; margin-bottom: 12px; }
+
+  .price-size {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    color: var(--cream);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .price-desc {
+    font-size: 0.8rem;
+    color: rgba(245,237,214,0.5);
+    line-height: 1.55;
+    margin-bottom: 18px;
+    min-height: 50px;
+  }
+
+  .price-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--peanut);
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .wa-btn {
+    display: block;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .wa-btn:hover { background: #1eb859; transform: scale(1.03); }
+
+  .order-note {
+    font-size: 0.78rem;
+    color: rgba(245,237,214,0.3);
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  @media (max-width: 480px) {
+    .pricing-grid { grid-template-columns: 1fr; max-width: 320px; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-14px); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50%       { opacity: 1; }
+  }
+
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.94); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    .macro-cards  { grid-template-columns: 1fr 1fr; }
+    .calc-row     { flex-direction: column; align-items: flex-start; }
+    .calc-row input, .calc-row select { width: 100%; }
+    .nav { display: none; }
+    .modal { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- nav dots -->
+<nav class="nav" aria-label="Page sections">
+  <a href="#hero"    title="Top"></a>
+  <a href="#why"     title="Why Natural"></a>
+  <a href="#macros"  title="Macros"></a>
+  <a href="#recipes" title="Recipes"></a>
+  <a href="#order"   title="Order"></a>
+</nav>
+
+<!-- HERO -->
+<section id="hero" style="max-width:100%;padding:0;">
+  <div class="hero">
+    <span class="badge">🌿 100% Organic · Nothing Added</span>
+    <h1 class="hero-title">PURE<span>GRIND</span></h1>
+    <div class="hero-jar">
+      <svg viewBox="0 0 240 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;overflow:visible;">
+        <!-- background peanuts -->
+        <g opacity="0.55">
+          <!-- peanut left -->
+          <ellipse cx="28" cy="200" rx="18" ry="11" fill="#8B5A1A" transform="rotate(-30 28 200)"/>
+          <ellipse cx="42" cy="188" rx="18" ry="11" fill="#A06820" transform="rotate(-30 42 188)"/>
+          <line x1="35" y1="194" x2="35" y2="194" stroke="#6B3F0A" stroke-width="3" stroke-linecap="round"/>
+          <!-- peanut right -->
+          <ellipse cx="212" cy="195" rx="18" ry="11" fill="#8B5A1A" transform="rotate(25 212 195)"/>
+          <ellipse cx="198" cy="183" rx="18" ry="11" fill="#A06820" transform="rotate(25 198 183)"/>
+          <!-- peanut bottom left -->
+          <ellipse cx="50" cy="265" rx="16" ry="10" fill="#7A4F14" transform="rotate(10 50 265)"/>
+          <ellipse cx="66" cy="260" rx="16" ry="10" fill="#9A6018" transform="rotate(10 66 260)"/>
+          <!-- peanut bottom right -->
+          <ellipse cx="185" cy="268" rx="16" ry="10" fill="#8B5A1A" transform="rotate(-15 185 268)"/>
+          <ellipse cx="170" cy="262" rx="16" ry="10" fill="#A06820" transform="rotate(-15 170 262)"/>
+          <!-- small scattered dots (peanut crumbs) -->
+          <circle cx="75" cy="240" r="4" fill="#C8852A" opacity="0.6"/>
+          <circle cx="165" cy="245" r="3" fill="#C8852A" opacity="0.5"/>
+          <circle cx="90" cy="275" r="3.5" fill="#A06820" opacity="0.5"/>
+          <circle cx="150" cy="278" r="4" fill="#C8852A" opacity="0.4"/>
+        </g>
+        <!-- jar body shadow -->
+        <ellipse cx="120" cy="290" rx="72" ry="10" fill="rgba(0,0,0,0.3)"/>
+        <!-- jar body -->
+        <rect x="52" y="90" width="136" height="175" rx="22" fill="#E8C97A"/>
+        <!-- jar glass shine -->
+        <rect x="52" y="90" width="136" height="175" rx="22" fill="url(#jarGrad)"/>
+        <!-- peanut butter fill inside jar -->
+        <clipPath id="jarClip">
+          <rect x="52" y="90" width="136" height="175" rx="22"/>
+        </clipPath>
+        <rect x="58" y="130" width="124" height="130" fill="#C8852A" clip-path="url(#jarClip)"/>
+        <!-- PB texture swirl -->
+        <g clip-path="url(#jarClip)" opacity="0.25">
+          <path d="M70 155 Q120 145 170 160 Q120 175 70 165Z" fill="#8B5A1A"/>
+          <path d="M65 185 Q120 172 175 188 Q120 202 65 195Z" fill="#8B5A1A"/>
+          <path d="M70 215 Q120 205 170 218 Q120 230 70 225Z" fill="#8B5A1A"/>
+        </g>
+        <!-- jar highlight -->
+        <rect x="68" y="100" width="18" height="80" rx="9" fill="rgba(255,255,255,0.18)" clip-path="url(#jarClip)"/>
+        <!-- label background -->
+        <rect x="62" y="138" width="116" height="88" rx="10" fill="#F5EDD6" clip-path="url(#jarClip)"/>
+        <!-- label text -->
+        <text x="120" y="167" text-anchor="middle" font-family="'Bebas Neue', sans-serif" font-size="22" fill="#1A1208" letter-spacing="2">PURE</text>
+        <text x="120" y="191" text-anchor="middle" font-family="'Bebas Neue', sans-serif" font-size="22" fill="#C8852A" letter-spacing="2">GRIND</text>
+        <text x="120" y="210" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="9" fill="#3D6B3A" letter-spacing="1.5">100% ORGANIC</text>
+        <!-- lid -->
+        <rect x="46" y="72" width="148" height="28" rx="8" fill="#3D6B3A"/>
+        <rect x="50" y="76" width="140" height="20" rx="6" fill="#4A7A46"/>
+        <!-- lid highlight -->
+        <rect x="58" y="79" width="60" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+        <!-- lid text -->
+        <text x="120" y="91" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="8" fill="rgba(245,237,214,0.8)" letter-spacing="1">PEANUT BUTTER</text>
+        <!-- defs -->
+        <defs>
+          <linearGradient id="jarGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.12)"/>
+            <stop offset="40%" stop-color="rgba(255,255,255,0)"/>
+            <stop offset="100%" stop-color="rgba(0,0,0,0.15)"/>
+          </linearGradient>
+        </defs>
+      </svg>
     </div>
-  );
+    <p class="hero-sub">Real peanuts. Real gains. The only ingredient is the one that matters.</p>
+    <div class="scroll-hint">scroll to learn more</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHY NATURAL -->
+<section id="why">
+  <p class="section-label">01 — The Difference</p>
+  <h2 class="section-title">Why <em>natural</em> hits different<br>than the store shelf stuff</h2>
+
+  <div class="compare-grid">
+    <div class="compare-col natural">
+      <h3>✅ Pure Grind</h3>
+      <ul class="compare-list">
+        <li data-icon="🥜">100% roasted peanuts — that's the full ingredient list</li>
+        <li data-icon="💪">Natural fats stay intact — the healthy monounsaturated kind your body actually wants</li>
+        <li data-icon="🔋">Slow-digesting energy — no blood sugar spike, no crash</li>
+        <li data-icon="🌿">Zero palm oil — no rainforest, no guilt</li>
+        <li data-icon="🧬">Full micronutrient profile: magnesium, vitamin E, niacin, potassium</li>
+        <li data-icon="🫙">Yes, the oil separates — that means it's real</li>
+      </ul>
+    </div>
+    <div class="compare-col processed">
+      <h3>❌ Processed Brands</h3>
+      <ul class="compare-list">
+        <li data-icon="⚠️">Hydrogenated palm oil added to prevent separation — and clog arteries</li>
+        <li data-icon="🍬">Added sugar (sometimes 3–4 tsp per serving) disguised as "natural flavour"</li>
+        <li data-icon="🧂">Excess salt masking poor quality peanuts</li>
+        <li data-icon="🏭">Emulsifiers and stabilisers your gut doesn't recognise</li>
+        <li data-icon="📉">Trans fats from partial hydrogenation — linked to inflammation</li>
+        <li data-icon="🎭">Smooth, uniform texture = heavily processed at high heat</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>The bottom line:</strong> Processed peanut butter is a <em>confectionery product</em> wearing a health label.
+    Pure Grind is a <em>whole food</em>. Your hormones, gut, and muscle fibres know the difference —
+    even if the marketing doesn't tell you.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MACROS + PROTEIN CALC -->
+<section id="macros">
+  <p class="section-label">02 — Nutrition Science</p>
+  <h2 class="section-title">Macros, protein targets<br>& how <em>peanut butter</em> fills the gap</h2>
+
+  <!-- per 2tbsp breakdown -->
+  <div class="macro-cards">
+    <div class="macro-card">
+      <div class="icon">💪</div>
+      <div class="value">8g</div>
+      <div class="label">Protein</div>
+      <div class="desc">Per 2 tbsp serving. Complete amino acid profile to support muscle repair.</div>
+    </div>
+    <div class="macro-card">
+      <div class="icon">🔥</div>
+      <div class="value">16g</div>
+      <div class="label">Healthy Fats</div>
+      <div class="desc">Mostly monounsaturated — the same fats in olive oil. Heart-healthy, hormone-supporting.</div>
+    </div>
+    <div class="macro-card">
+      <div class="icon">⚡</div>
+      <div class="value">6g</div>
+      <div class="label">Carbs</div>
+      <div class="desc">Low GI. Slow-release energy — no spike. Great pre or post workout.</div>
+    </div>
+  </div>
+
+  <div class="highlight-box" style="margin-bottom:32px;">
+    <strong>Why protein matters for gym goers:</strong> Protein is the building block of muscle. Every time you lift,
+    you create micro-tears in muscle tissue. Protein — specifically the amino acids it breaks down into —
+    repairs and rebuilds those fibres <em>bigger and stronger</em>. Without enough protein, you're training
+    for nothing. The sweet spot for most gym goers is <strong>1.6–2.2g of protein per kg of bodyweight per day</strong>.
+  </div>
+
+  <!-- calculator -->
+  <div class="calc-box">
+    <h3>🧮 Your Personal Protein Target</h3>
+    <div class="calc-row">
+      <label>Weight</label>
+      <input type="number" id="weight" placeholder="e.g. 75" min="30" max="300">
+      <select id="unit">
+        <option value="kg">kg</option>
+        <option value="lb">lbs</option>
+      </select>
+    </div>
+    <div class="calc-row">
+      <label>Goal</label>
+      <select id="goal">
+        <option value="1.6">Build Muscle (moderate)</option>
+        <option value="2.0">Build Muscle (aggressive)</option>
+        <option value="1.2">Maintain / Tone</option>
+        <option value="2.2">Athlete / High Performance</option>
+      </select>
+    </div>
+    <button class="calc-btn" onclick="calculate()">Calculate My Target →</button>
+
+    <div class="calc-result" id="result">
+      <div class="result-num" id="resultNum">—</div>
+      <div class="result-text" id="resultText"></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RECIPES -->
+<section id="recipes">
+  <p class="section-label">03 — Kitchen Fuel</p>
+  <h2 class="section-title">Easy recipes that<br>actually <em>hit the macros</em></h2>
+  <p class="recipes-intro">
+    No complicated prep. No fancy equipment. Just high-protein, whole-food meals you can make in minutes —
+    with peanut butter doing the heavy lifting.
+  </p>
+
+  <div class="recipe-grid" id="recipeGrid"></div>
+</section>
+
+<!-- CTA / ORDER -->
+<div class="cta" id="order">
+  <p class="section-label" style="justify-content:center;display:flex;">04 — Get Your Jar</p>
+  <h2>ORDER YOUR JAR</h2>
+  <p>Fresh-ground. No additives. Delivered to you.</p>
+
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-icon">🫙</div>
+      <div class="price-size">400g</div>
+      <div class="price-desc">Perfect starter jar — great for trying it out or topping up.</div>
+      <div class="price-amount">TSH 12,000</div>
+      <a class="wa-btn" href="https://wa.me/qr/5UAVAJW5MTXRL1" target="_blank" rel="noopener">
+        Order on WhatsApp 💬
+      </a>
+    </div>
+    <div class="price-card featured">
+      <div class="price-badge">BEST VALUE</div>
+      <div class="price-icon">🏺</div>
+      <div class="price-size">1 kg</div>
+      <div class="price-desc">The serious jar — for the gym goer who knows what they need.</div>
+      <div class="price-amount">TSH 22,000</div>
+      <a class="wa-btn" href="https://wa.me/qr/5UAVAJW5MTXRL1" target="_blank" rel="noopener">
+        Order on WhatsApp 💬
+      </a>
+    </div>
+  </div>
+
+  <p class="order-note">Tap a button above to message us directly on WhatsApp and place your order.</p>
+</div>
+
+<footer>
+  <a href="https://wa.me/qr/5UAVAJW5MTXRL1" target="_blank" rel="noopener" style="color:var(--peanut);text-decoration:none;font-weight:600;letter-spacing:0.05em;">
+    💬 Chat us on WhatsApp
+  </a>
+  <br><br>
+  PURE GRIND &nbsp;·&nbsp; 100% Organic Peanut Butter &nbsp;·&nbsp; Nothing Added. Ever.
+</footer>
+
+<!-- RECIPE MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<script>
+// ── PROTEIN CALCULATOR ──
+function calculate() {
+  const w = parseFloat(document.getElementById('weight').value);
+  const unit = document.getElementById('unit').value;
+  const multiplier = parseFloat(document.getElementById('goal').value);
+
+  if (!w || w < 20) {
+    alert('Please enter a valid weight.');
+    return;
+  }
+
+  const kg = unit === 'lb' ? w * 0.453592 : w;
+  const target = Math.round(kg * multiplier);
+  const tbsp = Math.round(target / 8);
+
+  document.getElementById('resultNum').textContent = target + 'g';
+  document.getElementById('resultText').innerHTML =
+    `That's your daily protein target. <strong>${tbsp} tablespoons of Pure Grind</strong> gives you ${tbsp * 8}g of protein — ` +
+    `${Math.round((tbsp * 8 / target) * 100)}% of your goal from peanut butter alone. ` +
+    `Fill the rest with eggs, chicken, Greek yoghurt, or legumes.`;
+
+  const el = document.getElementById('result');
+  el.classList.add('show');
 }
 
-const styles = {
-  page: {
-    margin: 0,
-    minHeight: '100vh',
-    background: '#fafafa',
-    color: '#222222',
-    fontFamily: 'Arial, sans-serif',
-    padding: '24px 16px 40px',
-    boxSizing: 'border-box',
+// ── RECIPES DATA ──
+const recipes = [
+  {
+    emoji: '🥤',
+    name: 'PB Protein Shake',
+    time: '3 min',
+    desc: 'The classic post-workout fuel-up. Thick, creamy, and packed with protein.',
+    tags: ['High Protein', 'Post-Workout', 'No Cook'],
+    ingredients: ['2 tbsp Pure Grind peanut butter', '1 banana (frozen = extra creamy)', '250ml oat milk or full-cream milk', '1 scoop vanilla protein powder (optional)', 'Pinch of cinnamon', 'Ice cubes'],
+    steps: ['Add all ingredients to a blender.', 'Blend on high for 30–40 seconds until smooth.', 'Pour and drink immediately — or refrigerate overnight for a thicker texture.', 'Optional: top with a drizzle of PB and granola.'],
+    note: 'With protein powder: ~45g protein. Without: ~18g protein.'
   },
-  container: {
-    maxWidth: '900px',
-    margin: '0 auto',
+  {
+    emoji: '🍌',
+    name: 'Banana PB Energy Bites',
+    time: '15 min + chill',
+    desc: 'No-bake balls of energy. Make a batch Sunday, snack all week.',
+    tags: ['Meal Prep', 'No Bake', 'High Energy'],
+    ingredients: ['3 tbsp Pure Grind peanut butter', '1 ripe banana, mashed', '1 cup rolled oats', '2 tbsp honey or date syrup', '2 tbsp dark chocolate chips', 'Pinch of salt'],
+    steps: ['Mix mashed banana and peanut butter until smooth.', 'Stir in oats, honey, chocolate chips, and salt.', 'Roll into golf-ball-sized balls (makes ~12).', 'Place on a plate lined with baking paper.', 'Refrigerate for 30 minutes to firm up. Store in fridge up to 5 days.'],
+    note: 'Each ball: ~5g protein, ~120 kcal. Great pre-gym snack.'
   },
-  hero: {
-    padding: '8px 0 12px',
+  {
+    emoji: '🍞',
+    name: 'Overnight Oats with PB',
+    time: '5 min + overnight',
+    desc: 'Zero morning effort. Wake up, open fridge, eat gains.',
+    tags: ['Meal Prep', 'High Protein', 'Breakfast'],
+    ingredients: ['½ cup rolled oats', '1 cup milk of choice', '2 tbsp Pure Grind peanut butter', '1 tbsp chia seeds', '1 tbsp honey', '½ banana or handful of berries'],
+    steps: ['Combine oats, milk, chia seeds, and honey in a jar or container.', 'Stir well, then dollop peanut butter on top (don\'t fully mix — you want pockets).', 'Cover and refrigerate overnight (or at least 4 hours).', 'In the morning, top with banana slices or berries.', 'Eat cold, or microwave for 90 seconds if you prefer it warm.'],
+    note: '~22g protein. Swap regular milk for high-protein milk to push it to 30g.'
   },
-  kicker: {
-    margin: '0 0 10px',
-    fontSize: '14px',
-    fontWeight: 700,
-    letterSpacing: '0.06em',
-    textTransform: 'uppercase' as const,
-    color: '#7a4b00',
+  {
+    emoji: '🥞',
+    name: 'PB Protein Pancakes',
+    time: '15 min',
+    desc: 'Fluffy, macro-friendly pancakes that actually fill you up.',
+    tags: ['Breakfast', 'High Protein', 'Family-Friendly'],
+    ingredients: ['2 ripe bananas', '2 eggs', '2 tbsp Pure Grind peanut butter', '¼ cup oats or oat flour', '½ tsp baking powder', 'Pinch of cinnamon', 'Coconut oil for the pan'],
+    steps: ['Mash bananas in a bowl until smooth.', 'Add eggs and peanut butter, mix well.', 'Stir in oats, baking powder, and cinnamon.', 'Heat a non-stick pan on medium, brush with coconut oil.', 'Pour small rounds (~3 tbsp each) and cook 2–3 min per side until golden.', 'Serve with sliced banana, a drizzle of honey, and extra PB.'],
+    note: 'Makes ~8 small pancakes. ~28g protein for the full batch.'
   },
-  title: {
-    margin: '0 0 12px',
-    fontSize: '36px',
-    lineHeight: 1.1,
+  {
+    emoji: '🍜',
+    name: 'Spicy PB Noodles',
+    time: '10 min',
+    desc: 'A savory peanut sauce so good you\'ll make it on repeat. Versatile and quick.',
+    tags: ['Lunch', 'Dinner', 'Meal Prep'],
+    ingredients: ['3 tbsp Pure Grind peanut butter', '2 tbsp soy sauce or tamari', '1 tbsp lime juice', '1 tsp sesame oil', '1 tsp sriracha (adjust to taste)', '1 clove garlic, minced', '2 tbsp warm water (to thin)', '200g noodles (rice or egg noodles)', 'Toppings: cucumber, spring onion, sesame seeds, chilli flakes'],
+    steps: ['Cook noodles according to packet instructions. Drain and rinse with cold water.', 'Whisk together peanut butter, soy sauce, lime juice, sesame oil, sriracha, garlic, and warm water until smooth.', 'Toss noodles in the peanut sauce until fully coated.', 'Top with sliced cucumber, spring onion, sesame seeds.', 'Serve cold (great for meal prep) or warm.'],
+    note: 'Add shredded chicken or edamame to boost protein by 20–30g.'
   },
-  subtitle: {
-    margin: '0 0 18px',
-    fontSize: '18px',
-    lineHeight: 1.6,
+  {
+    emoji: '🥗',
+    name: 'PB Power Smoothie Bowl',
+    time: '5 min',
+    desc: 'Thick, spoonable, and Instagram-worthy. Tastes like dessert, performs like fuel.',
+    tags: ['Breakfast', 'Post-Workout', 'No Cook'],
+    ingredients: ['2 frozen bananas', '2 tbsp Pure Grind peanut butter', '½ cup frozen mango or berries', '4 tbsp oat milk (start small — keep it thick)', 'Toppings: granola, banana slices, shredded coconut, extra PB drizzle, honey'],
+    steps: ['Blend frozen bananas, peanut butter, frozen fruit, and oat milk.', 'Blend in short pulses — thick is the goal. Add milk a splash at a time.', 'Pour into a bowl (should hold its shape).', 'Arrange toppings however you like.', 'Eat immediately before it melts.'],
+    note: '~16g protein base. Add a scoop of protein powder to the blend for 35g+.'
   },
-  box: {
-    background: '#ffffff',
-    padding: '20px',
-    borderRadius: '12px',
-    marginTop: '20px',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+  {
+    emoji: '🍪',
+    name: '3-Ingredient PB Cookies',
+    time: '15 min',
+    desc: 'No flour, no butter, no fuss. Just three things standing between you and a cookie.',
+    tags: ['Snack', 'Gluten Free', 'Quick'],
+    ingredients: ['1 cup Pure Grind peanut butter', '½ cup sugar (or coconut sugar)', '1 egg', 'Optional: pinch of salt, vanilla extract, dark chocolate chips'],
+    steps: ['Preheat oven to 180°C (350°F).', 'Mix peanut butter, sugar, and egg together until a dough forms.', 'Roll into 12 balls, place on a lined baking tray.', 'Flatten each with a fork (make the classic crosshatch pattern).', 'Bake 10–12 minutes until edges are set (they\'ll firm up as they cool).', 'Let cool for at least 5 minutes before eating.'],
+    note: 'Each cookie: ~6g protein. Much better than a store-bought protein bar.'
   },
-  heading: {
-    margin: '0 0 12px',
-    fontSize: '24px',
-  },
-  text: {
-    margin: '0 0 12px',
-    fontSize: '16px',
-    lineHeight: 1.6,
-  },
-  list: {
-    margin: 0,
-    paddingLeft: '20px',
-    lineHeight: 1.8,
-  },
-  button: {
-    display: 'inline-block',
-    marginTop: '8px',
-    padding: '10px 16px',
-    background: '#222222',
-    color: '#ffffff',
-    textDecoration: 'none',
-    borderRadius: '8px',
-    fontWeight: 700,
-  },
-  center: {
-    textAlign: 'center' as const,
-  },
-};
+  {
+    emoji: '🌯',
+    name: 'PB & Banana Wrap',
+    time: '3 min',
+    desc: 'The gym bag essential. No prep, no mess, big payoff.',
+    tags: ['On-the-Go', 'Pre-Workout', 'Kid Friendly'],
+    ingredients: ['1 whole wheat wrap or tortilla', '2 tbsp Pure Grind peanut butter', '1 banana, sliced', '1 tbsp honey (optional)', 'Sprinkle of oats or granola for crunch'],
+    steps: ['Lay the wrap flat.', 'Spread peanut butter evenly across the centre.', 'Drizzle with honey.', 'Lay banana slices across the middle.', 'Sprinkle oats or granola if using.', 'Roll tightly, slice diagonally, eat.'],
+    note: '~15g protein. Perfect 30-min pre-workout fuel.'
+  }
+];
+
+// render recipe cards
+const grid = document.getElementById('recipeGrid');
+recipes.forEach((r, i) => {
+  const card = document.createElement('div');
+  card.className = 'recipe-card';
+  card.onclick = () => openModal(i);
+  card.innerHTML = `
+    <div class="recipe-emoji">${r.emoji}</div>
+    <div class="recipe-body">
+      <div class="recipe-name">${r.name}</div>
+      <div class="recipe-time">⏱ ${r.time}</div>
+      <div class="recipe-desc">${r.desc}</div>
+      <div class="recipe-tags">${r.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+    </div>
+  `;
+  grid.appendChild(card);
+});
+
+// modal
+function openModal(i) {
+  const r = recipes[i];
+  document.getElementById('modalContent').innerHTML = `
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div class="modal-emoji">${r.emoji}</div>
+    <h2>${r.name}</h2>
+    <div class="modal-time">⏱ ${r.time}</div>
+    <h4>Ingredients</h4>
+    <ul>${r.ingredients.map(ing => `<li>${ing}</li>`).join('')}</ul>
+    <h4>Method</h4>
+    <ol>${r.steps.map(s => `<li>${s}</li>`).join('')}</ol>
+    ${r.note ? `<h4>Nutrition Note</h4><p>${r.note}</p>` : ''}
+  `;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (!e || e.target === document.getElementById('modalOverlay')) {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>
