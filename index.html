@@ -1,0 +1,171 @@
+export default function PeanutButterPosterLandingPage() {
+  return (
+    <div style={styles.page}>
+      <div style={styles.container}>
+        <header style={styles.hero}>
+          <p style={styles.kicker}>100% Natural Peanut Butter</p>
+          <h1 style={styles.title}>Clean fuel for training and everyday energy</h1>
+          <p style={styles.subtitle}>
+            Made from pure peanuts. Simple, calorie-dense, and perfect for gym
+            lifestyles.
+          </p>
+          <a href="#macros" style={styles.button}>
+            View macros
+          </a>
+        </header>
+
+        <section style={styles.box}>
+          <h2 style={styles.heading}>Why gym goers like it</h2>
+          <ul style={styles.list}>
+            <li>Easy way to increase calories when bulking</li>
+            <li>Keeps you full between meals</li>
+            <li>Quick pre or post workout option</li>
+            <li>Works with oats, smoothies, toast, and fruit</li>
+          </ul>
+        </section>
+
+        <section id="macros" style={styles.box}>
+          <h2 style={styles.heading}>Macro highlights</h2>
+          <p style={styles.text}>Replace these with your exact values:</p>
+          <ul style={styles.list}>
+            <li>Calories: ___ per serving</li>
+            <li>Protein: ___ g</li>
+            <li>Fats: ___ g</li>
+            <li>Carbs: ___ g</li>
+            <li>Ingredients: 100% peanuts</li>
+          </ul>
+        </section>
+
+        <section style={styles.box}>
+          <h2 style={styles.heading}>Who it is good for</h2>
+          <p style={styles.text}>
+            <strong>Bulking:</strong> easy way to increase calories
+          </p>
+          <p style={styles.text}>
+            <strong>Busy people:</strong> quick snack option
+          </p>
+          <p style={styles.text}>
+            <strong>Clean eating:</strong> simple natural ingredients
+          </p>
+        </section>
+
+        <section style={styles.box}>
+          <h2 style={styles.heading}>Easy recipe ideas</h2>
+          <p style={styles.text}>
+            <strong>Peanut Butter Oats</strong>
+            <br />
+            Oats + milk + peanut butter + banana
+          </p>
+          <p style={styles.text}>
+            <strong>Smoothie</strong>
+            <br />
+            Milk + banana + peanut butter + protein powder
+          </p>
+          <p style={styles.text}>
+            <strong>Toast</strong>
+            <br />
+            Toast + peanut butter + banana or dates
+          </p>
+        </section>
+
+        <section style={styles.box}>
+          <h2 style={styles.heading}>FAQ</h2>
+          <p style={styles.text}>
+            <strong>Is it good for muscle gain?</strong>
+            <br />
+            Yes, it helps increase calorie intake easily.
+          </p>
+          <p style={styles.text}>
+            <strong>When should I eat it?</strong>
+            <br />
+            Any time, like breakfast, before workouts, or after workouts.
+          </p>
+          <p style={styles.text}>
+            <strong>What makes it different?</strong>
+            <br />
+            Simple ingredients and no unnecessary additives.
+          </p>
+        </section>
+
+        <section style={{ ...styles.box, ...styles.center }}>
+          <h2 style={styles.heading}>Order now</h2>
+          <p style={styles.text}>Add your contact link here</p>
+          <a href="#" style={styles.button}>
+            Order on WhatsApp
+          </a>
+        </section>
+      </div>
+    </div>
+  );
+}
+
+const styles = {
+  page: {
+    margin: 0,
+    minHeight: '100vh',
+    background: '#fafafa',
+    color: '#222222',
+    fontFamily: 'Arial, sans-serif',
+    padding: '24px 16px 40px',
+    boxSizing: 'border-box',
+  },
+  container: {
+    maxWidth: '900px',
+    margin: '0 auto',
+  },
+  hero: {
+    padding: '8px 0 12px',
+  },
+  kicker: {
+    margin: '0 0 10px',
+    fontSize: '14px',
+    fontWeight: 700,
+    letterSpacing: '0.06em',
+    textTransform: 'uppercase' as const,
+    color: '#7a4b00',
+  },
+  title: {
+    margin: '0 0 12px',
+    fontSize: '36px',
+    lineHeight: 1.1,
+  },
+  subtitle: {
+    margin: '0 0 18px',
+    fontSize: '18px',
+    lineHeight: 1.6,
+  },
+  box: {
+    background: '#ffffff',
+    padding: '20px',
+    borderRadius: '12px',
+    marginTop: '20px',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+  },
+  heading: {
+    margin: '0 0 12px',
+    fontSize: '24px',
+  },
+  text: {
+    margin: '0 0 12px',
+    fontSize: '16px',
+    lineHeight: 1.6,
+  },
+  list: {
+    margin: 0,
+    paddingLeft: '20px',
+    lineHeight: 1.8,
+  },
+  button: {
+    display: 'inline-block',
+    marginTop: '8px',
+    padding: '10px 16px',
+    background: '#222222',
+    color: '#ffffff',
+    textDecoration: 'none',
+    borderRadius: '8px',
+    fontWeight: 700,
+  },
+  center: {
+    textAlign: 'center' as const,
+  },
+};
